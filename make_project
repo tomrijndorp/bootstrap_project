@@ -21,7 +21,7 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--cpp', action='store_true', help='C++ project')
     p.add_argument('--py', action='store_true', help='Python project')
-    p.add_argument('name', help='Project path')
+    p.add_argument('name', help='Project path, e.g. /tmp/my_project')
     args = p.parse_args()
 
     if args.cpp:
