@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+import os
+from subprocess import check_call
+
+PROJ = 'make_project_impl.sh'
+
+def run_script(name, **kwargs):
+    here = os.path.dirname(__file__)
+    shell(os.path.join(here, name), **kwargs)
+
+
+def shell(cmd, **kwargs):
+    """We're gonna run shell scripts anyway, so we might as well"""
+    return check_call(cmd, shell=True, **kwargs)
+
+
+if __name__ == '__main__':
+    p = argparse.ArgumentParser()
+    p.add_argument('--cpp', action='store_true', help='C++ project')
+    p.add_argument('--py', action='store_true', help='Python project')
+    p.add_argument('name', help='Project path')
+    args = p.parse_args()
+
+    if args.cpp:
+        run_script(f'{PROJ} {args.name}', env={'CPP': '1'})
+    elif args.py:
+        run_script(f'{PROJ} {args.name}', env={'PY': '1'})
+
