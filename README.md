@@ -4,22 +4,36 @@
 Simple set of scripts and templates to set up a super basic Bazel project
 that builds a C++ binary or Python project.
 
+**Usage: See `./make_project --help`** because code doesn't lie. But in its
+most basic version:
+```bash
+# C++ project
+$ ./make_project --cpp /tmp/my_cpp_proj
+$ cd /tmp/my_cpp_proj && ./build.sh
+# Python project
+$ ./make_project --py /tmp/my_py_proj
+$ cd /tmp/my_py_proj && ./build.sh
+```
+
 ## Requirements
+
+### C++
 - Bazel (for C++)
 - A C++ compiler (for C++, duh)
-
-Usage: `make_project --help`
+### Python
+- Python3
+- pip
 
 ## C++
 - Has GTest for tests
 - Adds an empty VSCode project
-- Sets up a simple git repo with an initial commit. Also has .gitignore.
+- Sets up a simple git repo with an initial commit. Also has `.gitignore`.
 
 ## Python
 - Uses pytest for tests
 - Creates a venv
 - Adds a VS Code workspace that uses the venv and has a test setup
-- Sets up a simple git repo with an initial commit. Also has .gitignore.
+- Sets up a simple git repo with an initial commit. Also has `.gitignore`.
 
 ## Issues
 - Python templates could use some more love (implement `setup.py`, etc.)
