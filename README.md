@@ -1,7 +1,12 @@
 # `bootstrap_project`
+[![CircleCI][badge]][ci]
 
 Simple set of scripts and templates to set up a super basic Bazel project
 that builds a C++ binary or Python project.
+
+## Requirements
+- Bazel (for C++)
+- A C++ compiler (for C++, duh)
 
 Usage: `make_project --help`
 
@@ -18,3 +23,6 @@ Usage: `make_project --help`
 
 ## Issues
 - Python templates could use some more love (implement `setup.py`, etc.)
+
+[ci]: https://app.circleci.com/pipelines/github/tomrijndorp/bootstrap_project
+[badge]: https://circleci.com/gh/tomrijndorp/dotfiles.svg?style=svg

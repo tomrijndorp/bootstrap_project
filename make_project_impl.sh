@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euxo pipefail
 
+CPP=${CPP:-}
+PY=${PY:-}
+
 say() {
     echo -e "\033[1m$*\033[0m"
 }
@@ -8,9 +11,19 @@ say() {
 make_repo() {
     say "Setting up the git repo..."
     git init
+    if [[ -f ~/.gitconfig ]]; then
+        cp ~/.gitconfig .git/config
+    else
+        cat <<EOF > .git/config
+[user]
+    name = "Skynet"
+    email = "skynet@skynet.skynet"
+EOF
+    fi
     git add .
     git commit -m "Initial commit"
     say "Done."
+    rm .git/config
 }
 
 if [[ $# -lt 1 ]]; then
@@ -29,10 +42,10 @@ if [[ $(stat "$project_name") ]]; then
     exit 1
 fi
 
-if [[ -n ${CPP:0} ]]; then
+if [[ -n "$CPP" ]]; then
     templates="$here/templates/cpp"
     say "Creating Bazel C++ project in <$project_name>..."
-elif [[ -n ${PY:0} ]]; then
+elif [[ -n "$PY" ]]; then
     templates="$here/templates/py"
     say "Creating Python project in <$project_name>..."
 fi

@@ -1,10 +1,12 @@
 #!/bin/bash
 
-set -euo pipefail
+set -euxo pipefail
+
+cat ~/.gitconfig
 
 # make a venv
 if [[ ! -e venv ]]; then
-    python3 -m venv venv
+    $(which python3) -m venv ./venv
     . venv/bin/activate
     pip install -r requirements.txt
 else
