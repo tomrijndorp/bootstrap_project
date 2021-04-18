@@ -1,11 +1,11 @@
 #!/bin/bash
-set -euxo pipefail
+set -euo pipefail
 
 CPP=${CPP:-}
 PY=${PY:-}
 
 say() {
-    echo -e "\033[1m$*\033[0m"
+    echo -e "\033[36;1m[ make_project ] $*\033[0m"
 }
 
 make_repo() {

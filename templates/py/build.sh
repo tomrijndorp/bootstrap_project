@@ -1,8 +1,6 @@
 #!/bin/bash
 
-set -euxo pipefail
-
-cat ~/.gitconfig
+set -euo pipefail
 
 # make a venv
 if [[ ! -e venv ]]; then

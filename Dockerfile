@@ -32,9 +32,7 @@ USER $DUSER
 # Test
 RUN \
   git config --global user.name "Test User" && \
-  git config --global user.email "test@user.com" \
-  && cat ~/.gitconfig \
-  && cd /tmp; mkdir a; cd a; git init; touch x; git add .; git commit -m test
+  git config --global user.email "test@user.com"
 
 RUN \
   # Python project

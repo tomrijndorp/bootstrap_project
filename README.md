@@ -8,34 +8,37 @@ that builds a C++ binary or Python project.
 most basic version:
 ```bash
 # C++ project
-$ ./make_project --cpp /tmp/my_cpp_proj
-$ cd /tmp/my_cpp_proj && ./build.sh
+./make_project --cpp /tmp/my_cpp_proj
+cd /tmp/my_cpp_proj && ./build.sh
 # Python project
-$ ./make_project --py /tmp/my_py_proj
-$ cd /tmp/my_py_proj && ./build.sh
+./make_project --py /tmp/my_py_proj
+cd /tmp/my_py_proj && ./build.sh
 ```
 
 ## Requirements
 
 ### C++
-- Bazel (for C++)
-- A C++ compiler (for C++, duh)
+- Bazel
+- A C++ compiler
+
 ### Python
 - Python3
 - pip
 
-## C++
+## Features
+
+### C++
 - Has GTest for tests
 - Adds an empty VSCode project
 - Sets up a simple git repo with an initial commit. Also has `.gitignore`.
 
-## Python
+### Python
 - Uses pytest for tests
 - Creates a venv
 - Adds a VS Code workspace that uses the venv and has a test setup
 - Sets up a simple git repo with an initial commit. Also has `.gitignore`.
 
-## Issues
+## Known Issues
 - Python templates could use some more love (implement `setup.py`, etc.)
 
 [ci]: https://app.circleci.com/pipelines/github/tomrijndorp/bootstrap_project
