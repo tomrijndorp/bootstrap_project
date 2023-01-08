@@ -12,3 +12,7 @@ build --cxxopt='-Wpedantic'
 
 # warnings are errors
 build --cxxopt='-Werror'
+
+# debug on Mac OS is broken since 2018 :'D
+# https://github.com/bazelbuild/bazel/issues/6327
+build --spawn_strategy=local
